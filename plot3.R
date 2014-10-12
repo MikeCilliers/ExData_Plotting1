@@ -20,10 +20,10 @@ rm(hpc.tbl)
 
 # plot the 3 line graphs for Sub metering onto one axis as a png
 png(filename="plot3.png", width = 480, height = 480, units = "px", pointsize = 12, bg = "white")
-with (sm, plot(date_time, Sub_metering_1, type="l", col = "black", xlab = "", ylab = "Energy sub metering")
-	points(date_time, Sub_metering_2, type="l", col = "red")
-	points(date_time, Sub_metering_3, type="l", col = "blue")
-	legend("topright", lty = 1, col = c("black", "red", "blue"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3")))
+with (sm, plot(date_time, Sub_metering_1, type="l", col = "black", xlab = "", ylab = "Energy sub metering"))
+with (sm, points(date_time, Sub_metering_2, type="l", col = "red"))
+with (sm, points(date_time, Sub_metering_3, type="l", col = "blue"))
+legend("topright", lty = 1, col = c("black", "red", "blue"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
 dev.off()
 
 rm(sm)
