@@ -18,6 +18,8 @@ gap <- hpc.tbl %>%
 rm(hpc.tbl)
 
 # plot the line graph as a png
-png(filename="plot2.png")
-with(gap, plot(date_time, Global_active_power, type="l", xlab = "", ylab = "Global Active Power (kilowatts)")
-dev.off() 
+png(filename="plot2.png", width = 480, height = 480, units = "px", pointsize = 12, bg = "white")
+with(gap, plot(date_time, Global_active_power, type="l", xlab = "", ylab = "Global Active Power (kilowatts)"))
+dev.off()
+
+rm(gap) 
