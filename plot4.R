@@ -1,12 +1,21 @@
+## Coursera: Exploratory Data Analysis
+## Course Project 1
+## Developer: Mike Cilliers
+## Date: 12 Oct 2014
+
+
 setwd("~/R/workspace/exploreData")
+
 suppressMessages(library(dplyr))
 
+# Read the dataset: Electric power consumption
 hpc.tbl <- tbl_df(read.table("household_power_consumption.txt", header = TRUE, sep = ";",na.strings = "?"))
-
+#Filter only the data having dates 2007-02-01 and 2007-02-02 and select the relevant fields
 hpc.tbl <- hpc.tbl %>% filter(Date == "1/2/2007" | Date == "2/2/2007") %>%
 	mutate(date_time = as.POSIXct(paste(Date, Time), format="%d/%m/%Y %H:%M:%S")) %>% 
 	select(date_time, Global_active_power, Voltage, Global_reactive_power, Sub_metering_1, Sub_metering_2, Sub_metering_3)
 	
+#Plot the 4 base plots
 png(filename="plot4.png")
 par(mfrow = c(2, 2))
 with(hpc.tbl, {
